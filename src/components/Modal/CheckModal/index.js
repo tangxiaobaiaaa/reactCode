@@ -4,7 +4,7 @@ import './index.scss'
 
 
 import Modal from '../'
-
+import {formaDataTime} from '../../../libs/utils'
 
 function CheckModal(props){
     const {isShowCheckModal,data,closeModal} = props
@@ -14,7 +14,7 @@ function CheckModal(props){
             isShowModal ={isShowCheckModal}
             modalTitle = '查看事件'
         >
-            <p className='topic'>时间：{data.id}</p>
+            <p className='topic'>时间：{formaDataTime(data.id)}</p>
             <p className='topic'>内容:{data.content}</p>
             <p className='topic'>状态:{data.completed?'已完成':'未完成'}</p>
             

@@ -12,7 +12,7 @@ function Header(props){
             <span
                 className='icon'
                 onClick={ openInput}
-            > ➕</span>
+            >+ </span>
           
         </div>
     

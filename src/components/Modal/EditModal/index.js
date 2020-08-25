@@ -4,7 +4,7 @@ import './index.scss'
 
 import Modal from '../'
 
-
+import {formaDataTime} from '../../../libs/utils'
 function EditModal(props){
 
     const {isShowEditModal,data,submitEdit} = props,
@@ -33,7 +33,7 @@ function EditModal(props){
             isShowModal = {isShowEditModal}
             modalTitle = '编辑事件'
         >
-            <p className='topic'>时间:{data.id}</p>
+            <p className='topic'>时间:{formaDataTime(data.id)}</p>
             <p className='topic'>
                 <textarea
                     ref={inputRef}
