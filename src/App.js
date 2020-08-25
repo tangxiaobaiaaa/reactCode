@@ -5,12 +5,10 @@ import MyHeader from './components/Header'
 import AddInput from './components/AddInput'
 import TodoItem from './components/TodoItem'
 import CheckModal from './components/Modal/CheckModal'
-import EditModal from './components/Modal/EditModal';
+import EditModal from './components/Modal/EditModal'
 import NoDataTip from './components/NoDataTip'
  
-
 function App() {
-
   const [isInputShow,setInputShow] = useState(false),
         [isShowCheckModal,setShowCheckModal] = useState(false),
         [isShowEditModal,setShowEditModal] = useState(false),
@@ -40,18 +38,30 @@ function App() {
   },[])
  
 
-  const completeItem = useCallback((id)=>{
-    console.log('点击了个寂寞');
-    setTodoList((todoList)=> todoList.map( item =>{
-      console.log(item.id,'外面');
-        if(item.id === id){
-            item.completed = !item.completed 
-               console.log(item.id,'里面');
-        }
-        return item
-      }))
-  },[])
+  // const completeItem = useCallback((id)=>{
+  //   console.log('点击了个寂寞');
+  //   setTodoList(todoList=> todoList.map(item =>{
+  //       if(item.id == id){
+  //         item.completed =!item.completed 
+  //       }
+  //       return item
+  //     })
+      
+  //     )
+       
+  // },[])
+  
 
+  const completeItem = useCallback((id)=>{
+    setTodoList(todoList.map(item=>{
+      if(item.id === id){
+        item.completed = !item.completed
+      }
+      return item
+    }))
+  })
+
+  
   const removeItem = useCallback((id)=>{
     setTodoList((todoList)=>todoList.filter(item =>item.id !== id))
   },[])
